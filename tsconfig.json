@@ -2,10 +2,6 @@
   "compilerOptions": {
     "rootDir": "./",
     "target": "ESNext",
-    "lib": [
-      "es6",
-      "dom"
-    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

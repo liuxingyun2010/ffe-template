@@ -1,11 +1,13 @@
 import React from 'react'
+import './style.scss'
 
-interface IProps {
-  test: string
-}
-
-const PageIndex = (props: IProps) => {
-  return <div>index</div>
+const PageIndex = () => {
+  return (
+    <div className="pageIndex">
+      <div className="littleimg" />
+      <div className="banner" />
+    </div>
+  )
 }
 
 export default PageIndex

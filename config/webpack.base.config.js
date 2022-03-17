@@ -60,6 +60,25 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        type: 'asset',
+        generator: {
+          filename: 'static/[name].[contenthash:7][ext]',
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024,
+          },
+        },
+      },
+      {
+        test: /(\.(eot|ttf|woff|woff2|otf)|font)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[name].[contenthash:7][ext]',
+        },
+      },
+      {
         test: /\.css$/,
         use: styleRules,
       },
@@ -96,13 +115,14 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: isDev ? 'css/[name].css' : 'css/[name].[contenthash:7].css',
+      chunkFilename: isDev ? 'css[id].css' : 'css/[id].[contenthash:7].css',
+      ignoreOrder: true,
     }),
   ],
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.scss', '.css', '.mass'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.scss', '.css'],
     alias: {
       '*': resolveProjectPath('src'),
       '@': resolveProjectPath('src'),
