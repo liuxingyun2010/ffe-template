@@ -115,8 +115,8 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: isDev ? 'css/[name].css' : 'css/[name].[contenthash:7].css',
-      chunkFilename: isDev ? 'css[id].css' : 'css/[id].[contenthash:7].css',
+      filename: isDev ? 'css/[name].css' : './css/[name].[contenthash:7].css',
+      chunkFilename: isDev ? 'css[id].css' : './css/[id].[contenthash:7].css',
       ignoreOrder: true,
     }),
   ],

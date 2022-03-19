@@ -1,14 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
-const {merge} = require('webpack-merge')
-// const DevServer = require('webpack-dev-server')
+const { merge } = require('webpack-merge')
 const baseWebpack = require('./webpack.base.config')
 
 module.exports = merge(baseWebpack, {
   mode: 'development',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devtool: 'inline-source-map',
   devServer: {
     static: {
@@ -17,6 +14,6 @@ module.exports = merge(baseWebpack, {
     compress: true,
     port: 8080,
     open: true,
-    hot: true
-  }
+    hot: true,
+  },
 })
